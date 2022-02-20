@@ -120,6 +120,7 @@ body {
 .descriptionCat {
     font-family: sans-serif;
     font-size: 16px;
+    margin-top: 0;
 }
 
 .popupR {
@@ -132,4 +133,8 @@ body {
     width: 50px;
     height: 50px;
     cursor: pointer;
+}
+.popupclose {
+    margin-top: -85%;
+    margin-left: 260px;
 }
