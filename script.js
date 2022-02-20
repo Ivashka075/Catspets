@@ -140,6 +140,14 @@ let openModulWin = function(cat){
         <p class="descriptionCat">${cat.description}</p>
     `;
     popup.append(popupInfo);
+    let popupClose = document.createElement("div");
+    popupClose.className = 'popupclose'
+    
+    popupClose.innerHTML = `<img class="imgclose" src="img/close.png"></img>`;
+    popupInfo.append(popupClose);
+    popupClose.setAttribute("onclick", "document.querySelector('.popup').remove(), document.querySelector('.popup-back').remove()");
+
+    // popupClose.onclick = close();
 };
 
 let ageCatNormal = function (age){
@@ -148,3 +156,9 @@ let ageCatNormal = function (age){
     else {return "лет"}
 };
     
+
+let close = function(){
+    console.log("ttytyt");
+}
+// onclick="close()"
+document.lastElementChild
