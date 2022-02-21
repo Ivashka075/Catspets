@@ -24,10 +24,9 @@ body {
     /* grid-template-columns: 1fr 1fr 1fr; */
     grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
     margin-top: 5px;
-    height: 100px;
     gap: 50px;
     padding: 50px calc(50% - 500px);
-
+    /* height: 100px; */
 }
 .card {
     display: flex;
@@ -74,12 +73,12 @@ body {
 
 .popup {
     background-color: white;
-    position: fixed;
-    display: grid;
+    position: relative;
+    display: flex;
     grid-template-columns: repeat(2, 300px);
     justify-content: center;
     align-items: flex-start;
-    margin: 0 calc(50% - 356px);
+    margin: -60% calc(50% - 356px);
     width: 712px;
     /* height: 362px; */
     border: 1px #0006;
@@ -93,7 +92,7 @@ body {
 .popup-back:before {
     content: '';
 	background: #000;
-	position: fixed; 
+	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%; 
@@ -137,4 +136,14 @@ body {
 .popupclose {
     margin-top: -85%;
     margin-left: 260px;
+}
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 5px rgb(63, 54, 54);
+    height: 100px;
+}
+.footertext {
+    margin: 0 calc(50% - 500px);
 }

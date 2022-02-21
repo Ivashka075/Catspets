@@ -161,4 +161,19 @@ let close = function(){
     console.log("ttytyt");
 }
 // onclick="close()"
-document.lastElementChild
+// document.lastElementChild
+    
+
+// let close = function(){
+//     console.log("ttytyt");
+// }
+
+
+let footer = document.createElement("div");
+footer.className = "footer";
+
+document.body.append(footer);
+let footerText = document.createElement("div");
+footerText.className = "footertext";
+footerText.innerText = "©2022 All rights reserved";
+footer.append(footerText);
