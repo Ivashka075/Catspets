@@ -1,13 +1,11 @@
 .logokitty {
-    width: 60px;
-    display: flex;
-    align-items: center;
+    height: 50px;
 }
 .cont-header {
     display: flex;
     justify-content: space-between;
     padding: 30px calc(50% - 500px);
-    box-shadow:  0 2px 3px rgb(161, 148, 148);;
+    box-shadow:  0 0 5px 0 #a19494;
 }
 .logotitle {
     font-family: "Comic Sans MS";
@@ -133,17 +131,25 @@ body {
     width: 50px;
     height: 50px;
     cursor: pointer;
+ 
 }
 .popupclose {
-    margin-top: -85%;
-    margin-left: 260px;
+    /* margin-top: -85%;
+    margin-left: 260px; */
+    position: fixed;
+    /* top: -300px;
+    left: 700px; */
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 0 5px rgb(63, 54, 54);
+    box-shadow: 0 0 5px 0 #a19494;
     height: 100px;
+    font-size: 26px;
 }
 .footertext {
     margin: 0 calc(50% - 500px);
