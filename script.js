@@ -209,6 +209,7 @@ if(localStorage.getItem('cats'===false)){
 }
 
 function deleteCatButtonFun(del){
+    event.stopPropagation();
     fetch(`https://sb-cats.herokuapp.com/api/delete/${del}`, {
     method: "DELETE"
     })
