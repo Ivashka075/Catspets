@@ -17,8 +17,14 @@ body {
     margin: 0;
     display: grid;
 }
+.buttons-up{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 200px);
+    padding: 50px calc(50% - 500px);
+    gap: 20px;
+    left: 0;
+}
 .updateCats{
-    margin: 20px calc(50% - 500px);
     box-shadow: 2px 2px #a19494;
     border: none;
     border-radius: 2px;
@@ -31,7 +37,7 @@ body {
 }
 
 .addCat {
-    margin: 20px calc(50% - 500px);
+    /* margin: 20px calc(50% - 500px); */
     box-shadow: 2px 2px #a19494;
     border: none;
     border-radius: 2px;
@@ -187,4 +193,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+.delete-cat {
+    margin-top: 20px;
 }

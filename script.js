@@ -21,7 +21,8 @@ let setCat = function (newCats) {
         card.innerHTML = `
    <div class="imgcat" style="background-image: url(${cat.img_link})"></div>
    <h3>${cat.name}</h3>
-   <p class="rate">${ratingcat}</p>`
+   <p class="rate">${ratingcat}</p>
+   <button class="delete-cat" onclick='deleteCatButtonFun(${cat.id})'>Удалить</button>`
 
 
         function rateCat(r) {
@@ -45,6 +46,7 @@ let setCat = function (newCats) {
 
 
     });
+    // document.querySelector(".delete-cat").onclick = console.log('123')
 };
 
 
@@ -114,7 +116,7 @@ let addCatPopup = function () {
             img_link: imgCat.value,
             description: descriptionCat.value
         }
-        console.log(bodyJSON)
+        // console.log(bodyJSON)
         fetch("https://sb-cats.herokuapp.com/api/add", {
             method: 'POST',
             body: JSON.stringify(bodyJSON),
@@ -182,8 +184,10 @@ function seeCats() {
             else { return Promise.reject(resp) }
         })
         .then(({ data }) => {
-            // localStorage.setItem("cats", JSON.stringify(data));
-            // console.log(data)
+            localStorage.setItem("cats", JSON.stringify(data));
+            // data.forEach(dataCat => )
+           
+           
             setCat(data);
         })
         .catch((error) => {
@@ -200,3 +204,29 @@ function runUpdateCats() {
 let buttonUpdate = document.querySelector(".updateCats");
 buttonUpdate.onclick = runUpdateCats;
 
+if(localStorage.getItem('cats'===false)){
+    seeCats();
+}
+
+function deleteCatButtonFun(del){
+    fetch(`https://sb-cats.herokuapp.com/api/delete/${del}`, {
+    method: "DELETE"
+    })
+    .then((resp) => {
+        if (resp.ok) {
+            return resp.json();
+        }
+        else { return Promise.reject(resp) }
+    })
+    .then((data) => {
+        if (data.message === 'ok'){
+            runUpdateCats();
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+} 
+// console.log(document.getElementsByClassName("delete-cat"))
+// document.getElementsByClassName("delete-cat").onclick = deleteCatButtonFun;
+// .addEventListener('click', ()=>{console.log('123')})
