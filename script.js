@@ -4,6 +4,21 @@ let maincont = document.createElement("div");
 maincont.className = "cards";
 
 document.body.append(maincont);
+let ratingcat
+
+function rateCat(r) {
+    for (let i = 1; i <= 10; i++) {
+        if (i <= r) {
+            ratingcat += "<img src='img/cat-fill.svg'>"
+        }
+        else {
+            ratingcat += "<img src='img/cat-stroke.svg'>"
+        }
+    }
+    return ratingcat;
+};
+
+
 
 let setCat = function (newCats) {
     newCats.forEach(cat => {
@@ -12,7 +27,7 @@ let setCat = function (newCats) {
         let image = document.createElement("img");
         image.className = "imgcat";
 
-        let ratingcat = "";
+        ratingcat = "";
         rateCat(cat.rate);
 
 
@@ -25,20 +40,9 @@ let setCat = function (newCats) {
    <button class="delete-cat" onclick='deleteCatButtonFun(${cat.id})'>Удалить</button>`
 
 
-        function rateCat(r) {
-            for (let i = 1; i <= 10; i++) {
-                if (i <= r) {
-                    ratingcat += "<img src='img/cat-fill.svg'>"
-                }
-                else {
-                    ratingcat += "<img src='img/cat-stroke.svg'>"
-                }
-            }
-            return ratingcat;
-        };
+    
 
-
-        card.onclick = function () {
+    card.onclick = function () {
             openModulWin(cat);
         };
 
@@ -99,6 +103,7 @@ let addCatPopup = function () {
                 <input type="text" placeholder="Имя" name="name" id="name">
                 <input type="text" placeholder="Изображение" name="img_link" id="img_link">
                 <input type="text" placeholder="Описание" name="description" id="description">
+                <input type="text" placeholder="Рейтинг" name="rate" id="rate">
                 <button type="submit">Отправить</button>
             </form>`;
     let popupForm = popupAddCat.querySelector(".popup-form");
@@ -114,7 +119,8 @@ let addCatPopup = function () {
             id: IdCat.value,
             name: NameCat.value,
             img_link: imgCat.value,
-            description: descriptionCat.value
+            description: descriptionCat.value,
+            rate: rate.value
         }
         // console.log(bodyJSON)
         fetch("https://sb-cats.herokuapp.com/api/add", {
