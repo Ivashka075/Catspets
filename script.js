@@ -104,6 +104,7 @@ let addCatPopup = function () {
                 <input type="text" placeholder="Изображение" name="img_link" id="img_link">
                 <input type="text" placeholder="Описание" name="description" id="description">
                 <input type="text" placeholder="Рейтинг" name="rate" id="rate">
+                <input type="text" placeholder="Возраст" name="age" id="age">
                 <button type="submit">Отправить</button>
             </form>`;
     let popupForm = popupAddCat.querySelector(".popup-form");
@@ -120,7 +121,8 @@ let addCatPopup = function () {
             name: NameCat.value,
             img_link: imgCat.value,
             description: descriptionCat.value,
-            rate: rate.value
+            rate: rate.value,
+            age: age.value
         }
         // console.log(bodyJSON)
         fetch("https://sb-cats.herokuapp.com/api/add", {
