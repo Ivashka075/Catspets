@@ -1,3 +1,6 @@
+
+localStorage.setItem("API", JSON.stringify(api));
+
 if(!Cookies.get('user')) {
     let popupBack = document.createElement("div");
     popupBack.className = 'popup-back';
