@@ -242,7 +242,8 @@ if(localStorage.getItem('cats'===false)){
 }
 
 function deleteCatButtonFun(del){
-    event.stopPropagation();
+    if (confirm("Хотите удалить котика?")) {
+        event.stopPropagation();
     fetch(`https://sb-cats.herokuapp.com/api/delete/${del}`, {
     method: "DELETE"
     })
@@ -260,6 +261,8 @@ function deleteCatButtonFun(del){
     .catch((error) => {
         console.log(error)
     })
+        }
+    
 } 
 // console.log(document.getElementsByClassName("delete-cat"))
 // document.getElementsByClassName("delete-cat").onclick = deleteCatButtonFun;
