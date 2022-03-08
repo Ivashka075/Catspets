@@ -108,6 +108,7 @@ body {
     left: calc(50vw - 356px);
     top: calc(50vh - 181px);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     /* margin: -60% calc(50% - 356px); */
